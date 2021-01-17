@@ -1,10 +1,16 @@
 $white-color: #ffffff;
 $gray-color: #3c3c3c;
+$font: 'Roboto', sans-serif;
 
 %bg-center {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+}
+
+%bold-font {
+    font-family: $font;
+    font-weight: 700;
 }
 
 * {
@@ -25,7 +31,7 @@ $gray-color: #3c3c3c;
     @extend %bg-center;
 
     .main-title {
-        font-family: 'Futura-Bold Regular', sans-serif;
+        @extend %bold-font;
         font-size: 54px;
         color: $white-color;
         text-transform: uppercase;
@@ -60,7 +66,7 @@ $gray-color: #3c3c3c;
         margin: 0 auto;
         margin-top: 35px;
         max-width: 530px;
-        font-family: 'Lato Light', sans-serif;
+        font-family: $font;
         font-size: 21px;
         line-height: 32px;
         color: $white-color;       
@@ -79,7 +85,7 @@ $gray-color: #3c3c3c;
     
     & > legend {
         text-align: center;
-        font-family: 'Futura-Bold Regular', sans-serif;
+        @extend %bold-font;
         font-size: 30px;
         text-transform: uppercase;
         padding-left: 120px;
@@ -87,7 +93,7 @@ $gray-color: #3c3c3c;
     }
 
     .fieldset-description {
-        font-family: 'Lato Light', sans-serif;
+        font-family: $font;
         font-size: 22px;
         text-align: center;
         line-height: 36px;
@@ -114,7 +120,7 @@ $gray-color: #3c3c3c;
     align-items: center;
 
     .fieldset-list-title {
-        font-family: 'Futura-Bold Regular', sans-serif;
+        @extend %bold-font;
         font-size: 30px;
         color: $gray-color;
         text-align: center;
@@ -122,7 +128,7 @@ $gray-color: #3c3c3c;
     }
 
     .fieldset-list-description {
-        font-family: 'Lato Light', sans-serif;
+        font-family: $font;
         font-size: 20px;
         text-align: center;
         line-height: 31px;
@@ -181,7 +187,7 @@ $gray-color: #3c3c3c;
         display: block;
         width: 100%;
         height: 100%;
-        font-family: 'Lato Bold', sans-serif;
+        @extend %bold-font;
         font-size: 34px;
         color: $white-color;
         text-transform: uppercase;
@@ -203,7 +209,7 @@ $gray-color: #3c3c3c;
     padding: 22px 112px;
     color: $white-color;
     text-transform: uppercase;
-    font-family: 'Futura-Bold Regular', sans-serif;
+    @extend %bold-font;
     font-size: 16px;
     letter-spacing: 0.1em;
     cursor: pointer;
@@ -218,7 +224,7 @@ $gray-color: #3c3c3c;
 
 .footer {
     .container {
-        font-family: 'Lato Light', sans-serif;
+        font-family: $font;
         font-size: 16px;
         line-height: 31px;
         color: $gray-color;
@@ -237,27 +243,37 @@ $gray-color: #3c3c3c;
     .header {
         padding-top: 300px;
         padding-bottom: 250px;
-    }
+
+         .main-title::after {
+            top: 200%;
+        }
+    }   
 
     .fieldset, .fieldset-white {
         margin-top: 80px;
         margin-bottom: 80px;
         padding: 60px;
+
+        legend {
+            font-size: 25px;            
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .fieldset-list-item {
+            margin-top: 170px;
+
+            &::before {        
+                top: -65%;
+                left: 37%;        
+            }
+        }
     }
 
     .services {
         margin-top: 80px;
         margin-bottom: 80px;
         padding: 50px 0;
-    }
-
-    .fieldset-list-item {
-        margin-top: 170px;
-    }
-
-    .fieldset-list-item::before {        
-        top: -70%;
-        left: 43%;        
     }
 
     .fieldset-list-description {
@@ -270,29 +286,18 @@ $gray-color: #3c3c3c;
     }
 
     .gallery-wrap {
-        flex-direction: column;
-    }
+        flex-direction: column;    
 
-    .gallery-item {
-        width: 100%;
-        margin-bottom: 10px;
+        .gallery-item {
+            width: 100%;
+            margin-bottom: 10px;
+        }
     }
 
     .button {
         padding: 15px 50px; 
     }
-
-    .fieldset > legend {
-        font-size: 25px;            
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .main-title {        
-        font-size: 30px;        
-    }
 }
-
 
 @media screen and (max-width: 670px) {
     .fieldset-list-item::before {        
@@ -302,6 +307,14 @@ $gray-color: #3c3c3c;
     .header {
         padding-top: 200px;
         padding-bottom: 150px;
+
+        .main-title {        
+            font-size: 30px;        
+        }
+
+        .main-title::after {
+            top: 400%;
+        }
     }
 
     .fieldset, .fieldset-white {
@@ -318,14 +331,12 @@ $gray-color: #3c3c3c;
 }
 
 @media screen and (max-width: 470px) {
-    .fieldset-list-item::before {        
-        left: 38%; 
-        top: -50%;       
-    }
-
-    .main-title::after {
-        top: 360%;
-    }
+    .fieldset-list {
+        .fieldset-list-item::before {        
+            left: 38%; 
+            top: -50%;       
+        }
+    }    
   
     .button {
         font-size: 12px;
@@ -334,25 +345,47 @@ $gray-color: #3c3c3c;
     }
 }
 
+@media screen and (max-width: 430px) {
+    .header {
+        .main-title::after {
+            top: 300%;
+        }
+    }
+
+}
+
 @media screen and (max-width: 390px) {
-    .fieldset-list-item::before {        
-        left: 35%; 
-        top: -40%;       
-    }   
-    
-    .fieldset > legend {
-        font-size: 15px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+    .fieldset-list {
+        .fieldset-list-item::before {        
+            left: 35%; 
+            top: -40%;       
+        } 
+    }  
 
-    .fieldset-description {
-        font-size: 12px;
-        line-height: 18px;
-    }
+    .fieldset {
+        legend {
+            font-size: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
 
-    .fieldset-list-title {
-        font-size: 25px; 
-        margin-bottom: 22px;
+        .fieldset-description {
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .fieldset-list-title {
+            font-size: 25px; 
+            margin-bottom: 22px;
+        }
     }
+}
+
+@media screen and (max-width: 350px) {
+    .fieldset-list {
+        .fieldset-list-item::before {        
+            left: 30%; 
+            top: -35%;       
+        } 
+    } 
 }
