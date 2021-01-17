@@ -245,7 +245,7 @@ $font: 'Roboto', sans-serif;
         padding-bottom: 250px;
 
          .main-title::after {
-            top: 200%;
+            top: 250%;
         }
     }   
 
@@ -265,7 +265,7 @@ $font: 'Roboto', sans-serif;
 
             &::before {        
                 top: -65%;
-                left: 37%;        
+                left: 45%;        
             }
         }
     }
@@ -300,9 +300,11 @@ $font: 'Roboto', sans-serif;
 }
 
 @media screen and (max-width: 670px) {
-    .fieldset-list-item::before {        
-        left: 40%;        
-    }
+    .fieldset {
+        .fieldset-list-item::before {        
+            left: 40%;        
+        }
+    }    
 
     .header {
         padding-top: 200px;
@@ -348,7 +350,7 @@ $font: 'Roboto', sans-serif;
 @media screen and (max-width: 430px) {
     .header {
         .main-title::after {
-            top: 300%;
+            top: 350%;
         }
     }
 
@@ -388,4 +390,10 @@ $font: 'Roboto', sans-serif;
             top: -35%;       
         } 
     } 
+
+    .header {
+        .main-title::after {
+            top: 300%;
+        }
+    }
 }

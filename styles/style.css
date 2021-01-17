@@ -230,7 +230,7 @@
     padding-bottom: 250px;
   }
   .header .main-title::after {
-    top: 200%;
+    top: 250%;
   }
 
   .fieldset, .fieldset-white {
@@ -248,7 +248,7 @@
   }
   .fieldset .fieldset-list-item::before, .fieldset-white .fieldset-list-item::before {
     top: -65%;
-    left: 37%;
+    left: 45%;
   }
 
   .services {
@@ -279,7 +279,7 @@
   }
 }
 @media screen and (max-width: 670px) {
-  .fieldset-list-item::before {
+  .fieldset .fieldset-list-item::before {
     left: 40%;
   }
 
@@ -320,7 +320,7 @@
 }
 @media screen and (max-width: 430px) {
   .header .main-title::after {
-    top: 300%;
+    top: 350%;
   }
 }
 @media screen and (max-width: 390px) {
@@ -347,6 +347,10 @@
   .fieldset-list .fieldset-list-item::before {
     left: 30%;
     top: -35%;
+  }
+
+  .header .main-title::after {
+    top: 300%;
   }
 }
 
