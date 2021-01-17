@@ -141,19 +141,14 @@ $gray-color: #3c3c3c;
             left: 40%;
             content: '';    
             background-repeat: no-repeat;
-        }        
+        }   
 
-        &:nth-child(1)::before {
-            background-image: url('../img/icon2.svg');
-        }
-
-        &:nth-child(2)::before {
-            background-image: url('../img/icon3.png');
-        }
-
-        &:nth-child(3)::before {
-            background-image: url('../img/icon4.svg');
-        }
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i})::before { 
+                background-image: url('../img/gallery#{$i}.jpg');
+                background-image: url('../img/icon#{$i + 1}.svg');
+            }
+        } 
     }
 }
 
@@ -175,31 +170,11 @@ $gray-color: #3c3c3c;
             transition: 0.3s;
         }
 
-        &:nth-child(1) {
-            background-image: url('../img/gallery1.jpg');
-        }
-
-        &:nth-child(2) {
-            background-image: url('../img/gallery2.jpg');
-            flex-grow: 100;
-        }
-
-        &:nth-child(3) {
-            background-image: url('../img/gallery3.jpg');
-        }
-
-        &:nth-child(4) {
-            background-image: url('../img/gallery4.jpg');
-        }
-
-        &:nth-child(5) {
-            background-image: url('../img/gallery5.jpg');
-            flex-grow: 100;
-        }
-
-        &:nth-child(6) {
-            background-image: url('../img/gallery6.jpg');
-        }
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) { 
+                background-image: url('../img/gallery#{$i}.jpg');
+            }
+        }       
     }
 
     .gallery-item-link {
@@ -254,8 +229,6 @@ $gray-color: #3c3c3c;
 
 /*** ADAPTIVE ***/
 
-
-
 @media screen and (max-width: 910px) {
     .container {
         max-width: 90%;
@@ -269,7 +242,6 @@ $gray-color: #3c3c3c;
     .fieldset, .fieldset-white {
         margin-top: 80px;
         margin-bottom: 80px;
-
         padding: 60px;
     }
 
@@ -335,7 +307,6 @@ $gray-color: #3c3c3c;
     .fieldset, .fieldset-white {
         margin-top: 60px;
         margin-bottom: 60px;
-
         padding: 50px;
     }
 
@@ -385,6 +356,3 @@ $gray-color: #3c3c3c;
         margin-bottom: 22px;
     }
 }
-
-
-
